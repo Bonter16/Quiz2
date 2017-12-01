@@ -1,0 +1,72 @@
+## Assignment: Quiz 2
+## Version: 1
+## Author: Brian Bonter (bonterb@student.ncmich.edu)
+
+use 5.14.2;
+use strict;
+use warnings;
+
+my ($departmentNum, $idNum, $years);
+
+sub main {
+	system ("cls");
+	setDepart();
+	setId();
+	setYears();
+	printYears();
+}
+
+main();
+
+sub setDepart {
+	use constant MAX_DEPART => 10;
+	if (!(defined $departmentNum)) {
+		$departmentNum = 0;
+	}
+	while ($departmentNum !~ /[0-9]/x || $departmentNum > MAX_DEPART || $departmentNum <= 0) {
+		print "What is your department? ";
+		chomp ($departmentNum = <STDIN>);
+		if ($departmentNum !~ /[0-9]/x || $departmentNum > MAX_DEPART || $departmentNum <= 0) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub setId {
+	use constant MAX_ID => 5000;
+	if (!(defined $idNum)) {
+		$idNum = 0;
+	}
+	while ($idNum !~ /[0-9]/x || $idNum > MAX_ID || $idNum <= 0) {
+		print "What is your employee ID number? ";
+		chomp ($idNum = <STDIN>);
+		if ($idNum !~ /[0-9]/x || $idNum > MAX_ID || $idNum <= 0) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}	
+
+sub setYears {
+	use constant MAX_YEARS => 40;
+	if (!(defined $years)) {
+		$years = 0;
+	}
+	while ($years !~ /[0-9]/x || $years > MAX_ID || $years <= 0) {
+		print "How many years have you worked hear? ";
+		chomp ($years = <STDIN>);
+		if ($years !~ /[0-9]/x || $years > MAX_ID || $years <= 0) {
+			say "Incorrect input. Please try again";
+			sleep 1;
+			system ("cls");
+		}
+	}
+}
+
+sub printYears {
+	total = ( $years * $count )
+	print "the amount of service that department "$departmentNum" has is "$total""
+}
